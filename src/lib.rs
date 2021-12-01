@@ -27,6 +27,7 @@ mod tests_increments {
     }
 }
 
+#[cfg(test)]
 mod tests_increments_windows {
     use super::challenge1::*;
 
@@ -61,21 +62,19 @@ pub mod challenge1 {
 }
 
 pub mod input {
-    use std::fmt::Debug;
-    use std::io::Error;
+    use std::error::Error;
     use std::fs;
     use std::str::FromStr;
 
-    pub fn read_and_parse<T: FromStr>(filename: &str) -> Result<Vec<T>, Error>  {
+    pub fn read_and_parse<T: FromStr>(filename: &str) -> Result<Vec<T>, Box<dyn Error + 'static>>
+    where
+        T::Err: Error + 'static,
+    {
         let contents = fs::read_to_string(filename)?;
 
-        let result = contents.lines()
-            .map(|line| match line.parse::<T>() {
-                Ok(x) => x,
-                Err(_) => panic!("Parse error while reading file!")
-            })
-            .collect();
-
-        Ok(result)
+        contents
+            .lines()
+            .map(|line| line.parse().map_err(|e: T::Err| e.into()))
+            .collect()
     }
 }
