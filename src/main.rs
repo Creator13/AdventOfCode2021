@@ -43,11 +43,20 @@ mod day2 {
         println!("Day 2:");
         print!("\t");
         challenge1(&input);
+        print!("\t");
+        challenge2(&input);
     }
 
     fn challenge1(input: &Vec<String>) {
         let before = Instant::now();
-        let result = challenge2::horizontal_pos_and_depth(&input);
+        let result = challenge2::move_directly(&input);
+
+        println!("2-1: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+
+    fn challenge2(input: &Vec<String>) {
+        let before = Instant::now();
+        let result = challenge2::move_by_aim(&input);
 
         println!("2-1: Result: {} (took {:.1?})", result, before.elapsed());
     }
