@@ -33,9 +33,9 @@ mod tests {
 }
 
 enum Command {
-    Up(i64),
-    Down(i64),
-    Forward(i64),
+    Up(i32),
+    Down(i32),
+    Forward(i32),
 }
 
 fn map_to_commands(input: &Vec<String>) -> Vec<Command> {
@@ -53,7 +53,7 @@ fn map_to_commands(input: &Vec<String>) -> Vec<Command> {
         .collect()
 }
 
-pub fn move_directly(input: &Vec<String>) -> i64 {
+pub fn move_directly(input: &Vec<String>) -> i32 {
     let mut horizontal = 0;
     let mut vertical = 0;
 
@@ -70,7 +70,7 @@ pub fn move_directly(input: &Vec<String>) -> i64 {
     horizontal * vertical
 }
 
-pub fn move_by_aim(input: &Vec<String>) -> i64 {
+pub fn move_by_aim(input: &Vec<String>) -> i32 {
     let mut horizontal = 0;
     let mut vertical = 0;
     let mut aim = 0;
