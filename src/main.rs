@@ -70,9 +70,11 @@ mod day3 {
     pub fn run() {
         let input = input::read("input/challenge3.txt").unwrap();
 
-        println!("Day 2:");
+        println!("Day 3:");
         print!("\t");
         challenge1(&input);
+        print!("\t");
+        challenge1_logical(&input);
         // print!("\t");
         // challenge2(&input);
     }
@@ -81,7 +83,14 @@ mod day3 {
         let before = Instant::now();
         let result = challenge3::get_gamma_epsilon_binary(&input);
 
-        println!("2-1: Result: {} (took {:.1?})", result.power_consumption(), before.elapsed());
+        println!("3-1 (binary): Result: {} (took {:.1?})", result.power_consumption(), before.elapsed());
+    }
+
+    fn challenge1_logical(input: &Vec<String>) {
+        let before = Instant::now();
+        let result = challenge3::get_gamma_epsilon_logical(&input);
+
+        println!("3-1 (logical): Result: {} (took {:.1?})", result.power_consumption(), before.elapsed());
     }
 
     // fn challenge2(input: &Vec<String>) {
