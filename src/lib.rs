@@ -1,5 +1,6 @@
 pub mod challenge1;
 pub mod challenge2;
+pub mod challenge3;
 
 pub mod input {
     use std::error::Error;

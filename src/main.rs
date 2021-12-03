@@ -1,6 +1,7 @@
 fn main() {
     day1::run();
     day2::run();
+    day3::run();
 }
 
 mod day1 {
@@ -60,4 +61,33 @@ mod day2 {
 
         println!("2-1: Result: {} (took {:.1?})", result, before.elapsed());
     }
+}
+
+mod day3 {
+    use aoc2021::{challenge3, input};
+    use std::time::Instant;
+
+    pub fn run() {
+        let input = input::read("input/challenge3.txt").unwrap();
+
+        println!("Day 2:");
+        print!("\t");
+        challenge1(&input);
+        // print!("\t");
+        // challenge2(&input);
+    }
+
+    fn challenge1(input: &Vec<String>) {
+        let before = Instant::now();
+        let result = challenge3::get_gamma_epsilon_binary(&input);
+
+        println!("2-1: Result: {} (took {:.1?})", result.power_consumption(), before.elapsed());
+    }
+
+    // fn challenge2(input: &Vec<String>) {
+    //     let before = Instant::now();
+    //     let result = challenge2::move_by_aim(&input);
+    //
+    //     println!("2-1: Result: {} (took {:.1?})", result, before.elapsed());
+    // }
 }
