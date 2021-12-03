@@ -59,7 +59,7 @@ mod day2 {
         let before = Instant::now();
         let result = challenge2::move_by_aim(&input);
 
-        println!("2-1: Result: {} (took {:.1?})", result, before.elapsed());
+        println!("2-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
 }
 
@@ -75,28 +75,28 @@ mod day3 {
         challenge1(&input);
         print!("\t");
         challenge1_logical(&input);
-        // print!("\t");
-        // challenge2(&input);
+        print!("\t");
+        challenge2(&input);
     }
 
     fn challenge1(input: &Vec<String>) {
         let before = Instant::now();
-        let result = challenge3::get_gamma_epsilon_binary(&input);
+        let result = challenge3::get_power_rates_binary(&input);
 
         println!("3-1 (binary): Result: {} (took {:.1?})", result.power_consumption(), before.elapsed());
     }
 
     fn challenge1_logical(input: &Vec<String>) {
         let before = Instant::now();
-        let result = challenge3::get_gamma_epsilon_logical(&input);
+        let result = challenge3::get_power_rates_logical(&input);
 
         println!("3-1 (logical): Result: {} (took {:.1?})", result.power_consumption(), before.elapsed());
     }
 
-    // fn challenge2(input: &Vec<String>) {
-    //     let before = Instant::now();
-    //     let result = challenge2::move_by_aim(&input);
-    //
-    //     println!("2-1: Result: {} (took {:.1?})", result, before.elapsed());
-    // }
+    fn challenge2(input: &Vec<String>) {
+        let before = Instant::now();
+        let result = challenge3::get_life_rates(&input);
+
+        println!("3-2: Result: {} (took {:.1?})", result.life_rating(), before.elapsed());
+    }
 }
