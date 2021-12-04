@@ -14,7 +14,7 @@ mod tests {
             String::from("forward 2"),
         ];
 
-        assert_eq!(move_by_aim(&input), 150)
+        assert_eq!(move_directly(&input), 150)
     }
 
     #[test]

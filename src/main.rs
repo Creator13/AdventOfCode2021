@@ -2,6 +2,7 @@ fn main() {
     day1::run();
     day2::run();
     day3::run();
+    day4::run();
 }
 
 mod day1 {
@@ -98,5 +99,35 @@ mod day3 {
         let result = challenge3::get_life_rates(&input);
 
         println!("3-2: Result: {} (took {:.1?})", result.life_rating(), before.elapsed());
+    }
+}
+
+mod day4 {
+    use aoc2021::{challenge4, input};
+    use std::time::Instant;
+
+    pub fn run() {
+        let input = input::read("input/challenge4.txt").unwrap();
+
+        println!("Day 4:");
+        print!("\t");
+        challenge1(&input);
+        print!("\t");
+        challenge2(&input);
+    }
+
+    fn challenge1(input: &Vec<String>) {
+        let before = Instant::now();
+        let result = challenge4::challenge1(&input);
+
+        println!("4-1: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+
+    fn challenge2(input: &Vec<String>) {
+        let before = Instant::now();
+        let result = challenge4::challenge2(&input);
+
+
+        println!("4-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
 }

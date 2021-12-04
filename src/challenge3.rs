@@ -205,13 +205,13 @@ pub fn get_life_rates(input: &[String]) -> LifeRates {
             }
         }
 
-        println!(
-            "{}/{} ones, Most common: {}, {:?}",
-            count_ones,
-            half_length_floor + half_length_ceil,
-            most_common as char,
-            result
-        );
+        // println!(
+        //     "{}/{} ones, Most common: {}, {:?}",
+        //     count_ones,
+        //     half_length_floor + half_length_ceil,
+        //     most_common as char,
+        //     result
+        // );
 
         iteration_values = result;
 
@@ -243,13 +243,13 @@ pub fn get_life_rates(input: &[String]) -> LifeRates {
             }
         }
 
-        println!(
-            "{}/{} ones, Least common: {}, {:?}",
-            count_ones,
-            half_length_floor + half_length_ceil,
-            least_common as char,
-            result
-        );
+        // println!(
+        //     "{}/{} ones, Least common: {}, {:?}",
+        //     count_ones,
+        //     half_length_floor + half_length_ceil,
+        //     least_common as char,
+        //     result
+        // );
 
         iteration_values = result;
 
@@ -266,7 +266,7 @@ pub fn get_life_rates(input: &[String]) -> LifeRates {
     let oxygen_int = u32::from_str_radix(ox_string, 2).unwrap();
     let co2_int = u32::from_str_radix(co_string, 2).unwrap();
 
-    println!("ox: {:?} -> {} -> {} | co: {:?} -> {} -> {}", oxygen, ox_string, oxygen_int, co2, co_string, co2_int);
+    // println!("ox: {:?} -> {} -> {} | co: {:?} -> {} -> {}", oxygen, ox_string, oxygen_int, co2, co_string, co2_int);
 
     LifeRates { co2: co2_int, oxygen: oxygen_int }
 }
