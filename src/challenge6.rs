@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -39,24 +37,22 @@ pub fn challenge1(input: &String, days: usize) -> usize {
 }
 
 pub fn challenge2(input: &String, days: usize) -> u64 {
-    let input: Vec<_> = input.split(",").map(|val| val.parse().unwrap()).collect();
-    let mut fisheses :HashMap<u8, _> = HashMap::from([0, 1, 2, 3, 4, 5, 6, 7, 8].map(|val| (val, 0)));
+    let input: Vec<usize> = input.split(",").map(|val| val.parse().unwrap()).collect();
+    let mut fishes = [0; 9];
 
     // Add initial fishes
     for x in input {
-        fisheses.entry(x).and_modify(|val| *val += 1);
+        fishes[x] += 1;
     }
-
-    let fish_len = fisheses.len() as u8;
 
     for _ in 0..days {
-        let to_add = *fisheses.entry(0).or_default();
-        for i in 0..fish_len - 1 {
-            *(fisheses.get_mut(&i).unwrap()) = *fisheses.get(&(i + 1)).unwrap();
+        let to_add = fishes[0];
+        for i in 0..(fishes.len()) - 1 {
+            fishes[i] = fishes[i + 1];
         }
-        *(fisheses.get_mut(&6).unwrap()) += to_add;
-        *(fisheses.get_mut(&8).unwrap()) = to_add;
+        fishes[6] += to_add;
+        fishes[8] = to_add;
     }
 
-    fisheses.iter().fold(0, |acc, (_, val)| acc + val)
+    fishes.iter().sum()
 }
