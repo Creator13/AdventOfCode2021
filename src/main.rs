@@ -4,6 +4,7 @@ fn main() {
     day3::run();
     day4::run();
     day5::run();
+    day6::run();
 }
 
 mod day1 {
@@ -160,5 +161,37 @@ mod day5 {
         let result = challenge5::challenge2(parse_coordinates(&input));
 
         println!("5-2: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+}
+
+
+
+mod day6 {
+    use std::fs;
+    use aoc2021::{challenge6};
+    use std::time::Instant;
+
+    pub fn run() {
+        let input = fs::read_to_string("input/challenge6.txt").unwrap().trim().to_string();
+
+        println!("Day 6:");
+        print!("\t");
+        challenge1(&input);
+        print!("\t");
+        challenge2(&input);
+    }
+
+    fn challenge1(input: &String) {
+        let before = Instant::now();
+        let result = challenge6::challenge1(&input, 80);
+
+        println!("6-1: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+
+    fn challenge2(input: &String) {
+        let before = Instant::now();
+        let result = challenge6::challenge1(&input, 256);
+
+        println!("6-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
 }
