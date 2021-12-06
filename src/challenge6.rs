@@ -37,21 +37,23 @@ pub fn challenge1(input: &String, days: usize) -> usize {
 }
 
 pub fn challenge2(input: &String, days: usize) -> u64 {
+    const BREED_TIME: usize = 9;
     let input: Vec<usize> = input.split(",").map(|val| val.parse().unwrap()).collect();
-    let mut fishes = [0; 9];
+    let mut fishes = [0; BREED_TIME];
 
     // Add initial fishes
     for x in input {
         fishes[x] += 1;
     }
 
-    for _ in 0..days {
-        let to_add = fishes[0];
-        for i in 0..(fishes.len()) - 1 {
-            fishes[i] = fishes[i + 1];
-        }
-        fishes[6] += to_add;
-        fishes[8] = to_add;
+    for i in 0..days {
+        // let to_add = fishes[0];
+        // for i in 0..(fishes.len()) - 1 {
+        //     fishes[i] = fishes[i + 1];
+        // }
+        // fishes[6] += to_add;
+        // fishes[8] = to_add;
+        fishes[(i + BREED_TIME - 2) % BREED_TIME] += fishes[i % BREED_TIME];
     }
 
     fishes.iter().sum()
