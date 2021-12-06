@@ -183,14 +183,14 @@ mod day6 {
 
     fn challenge1(input: &String) {
         let before = Instant::now();
-        let result = challenge6::challenge1(&input, 80);
+        let result = challenge6::challenge2(&input, 80);
 
         println!("6-1: Result: {} (took {:.1?})", result, before.elapsed());
     }
 
     fn challenge2(input: &String) {
         let before = Instant::now();
-        let result = challenge6::challenge1(&input, 256);
+        let result = challenge6::challenge2(&input, 256);
 
         println!("6-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
