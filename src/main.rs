@@ -5,6 +5,7 @@ fn main() {
     day4::run();
     day5::run();
     day6::run();
+    day7::run();
 }
 
 mod day1 {
@@ -164,8 +165,6 @@ mod day5 {
     }
 }
 
-
-
 mod day6 {
     use std::fs;
     use aoc2021::{challenge6};
@@ -193,5 +192,35 @@ mod day6 {
         let result = challenge6::challenge2(&input, 256);
 
         println!("6-2: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+}
+
+mod day7 {
+    use std::fs;
+    use aoc2021::{input, challenge7};
+    use std::time::Instant;
+
+    pub fn run() {
+        let input = input::read_numbers("input/challenge7.txt").unwrap();
+
+        println!("Day 7:");
+        print!("\t");
+        challenge1(&input);
+        print!("\t");
+        challenge2(&input);
+    }
+
+    fn challenge1(input: &[i32]) {
+        let before = Instant::now();
+        let result = challenge7::challenge1(&input);
+
+        println!("7-1: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+
+    fn challenge2(input: &[i32]) {
+        let before = Instant::now();
+        let result = challenge7::challenge2(&input);
+
+        println!("7-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
 }

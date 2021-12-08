@@ -4,6 +4,7 @@ pub mod challenge3;
 pub mod challenge4;
 pub mod challenge5;
 pub mod challenge6;
+pub mod challenge7;
 
 pub mod input {
     use std::error::Error;
@@ -25,6 +26,18 @@ pub mod input {
         contents
             .lines()
             .map(|line| line.parse().map_err(|e: T::Err| e.into()))
+            .collect()
+    }
+
+    pub fn read_numbers<T: FromStr>(filename: &str) -> Result<Vec<T>, Box<dyn Error + 'static>>
+    where
+        T::Err: Error + 'static,
+    {
+        let mut contents = fs::read_to_string(filename)?;
+        contents = contents.trim().to_string();
+        contents
+            .split(",")
+            .map(|val| val.parse().map_err(|e: T::Err| e.into()))
             .collect()
     }
 }
