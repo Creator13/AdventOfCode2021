@@ -5,6 +5,7 @@ pub mod challenge4;
 pub mod challenge5;
 pub mod challenge6;
 pub mod challenge7;
+pub mod challenge8;
 
 pub mod input {
     use std::error::Error;
@@ -12,7 +13,7 @@ pub mod input {
     use std::str::FromStr;
     use std::string::String;
 
-    pub fn read(filename: &str) -> Result<Vec<String>, Box<dyn Error>> {
+    pub fn read_lines(filename: &str) -> Result<Vec<String>, Box<dyn Error>> {
         let contents = fs::read_to_string(filename)?;
         Ok(contents.lines().map(|line| line.to_string()).collect())
     }

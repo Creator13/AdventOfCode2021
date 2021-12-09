@@ -6,6 +6,7 @@ fn main() {
     day5::run();
     day6::run();
     day7::run();
+    day8::run();
 }
 
 mod day1 {
@@ -43,7 +44,7 @@ mod day2 {
     use std::time::Instant;
 
     pub fn run() {
-        let input = input::read("input/challenge2.txt").unwrap();
+        let input = input::read_lines("input/challenge2.txt").unwrap();
 
         println!("Day 2:");
         print!("\t");
@@ -72,7 +73,7 @@ mod day3 {
     use std::time::Instant;
 
     pub fn run() {
-        let input = input::read("input/challenge3.txt").unwrap();
+        let input = input::read_lines("input/challenge3.txt").unwrap();
 
         println!("Day 3:");
         print!("\t");
@@ -110,7 +111,7 @@ mod day4 {
     use std::time::Instant;
 
     pub fn run() {
-        let input = input::read("input/challenge4.txt").unwrap();
+        let input = input::read_lines("input/challenge4.txt").unwrap();
 
         println!("Day 4:");
         print!("\t");
@@ -141,7 +142,7 @@ mod day5 {
     use aoc2021::challenge5::parse_coordinates;
 
     pub fn run() {
-        let input = input::read("input/challenge5.txt").unwrap();
+        let input = input::read_lines("input/challenge5.txt").unwrap();
 
         println!("Day 5:");
         print!("\t");
@@ -222,5 +223,35 @@ mod day7 {
         let result = challenge7::challenge2(&input);
 
         println!("7-2: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+}
+
+mod day8 {
+    use std::fs;
+    use aoc2021::{input, challenge8};
+    use std::time::Instant;
+
+    pub fn run() {
+        let input = input::read_lines("input/challenge8.txt").unwrap();
+
+        println!("Day 8:");
+        print!("\t");
+        challenge1(&input);
+        print!("\t");
+        challenge2(&input);
+    }
+
+    fn challenge1(input: &[String]) {
+        let before = Instant::now();
+        let result = challenge8::challenge1(&input);
+
+        println!("8-1: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+
+    fn challenge2(input: &[String]) {
+        let before = Instant::now();
+        let result = challenge8::challenge2(&input);
+
+        println!("8-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
 }

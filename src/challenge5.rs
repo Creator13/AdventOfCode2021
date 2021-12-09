@@ -2,7 +2,7 @@ use std::cmp::{max, min};
 
 #[cfg(test)]
 mod tests {
-    use crate::input::read;
+    use crate::input::read_lines;
     use super::*;
 
     #[test]
@@ -63,7 +63,7 @@ mod tests {
 
     #[test]
     fn parse_read() {
-        let input = read("input/challenge5.txt").unwrap();
+        let input = read_lines("input/challenge5.txt").unwrap();
         let result = parse_coordinates(&input);
         assert_eq!(result.vents.len(), 500);
     }
