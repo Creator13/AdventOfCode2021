@@ -7,6 +7,7 @@ fn main() {
     day6::run();
     day7::run();
     day8::run();
+    day9::run();
 }
 
 mod day1 {
@@ -251,6 +252,36 @@ mod day8 {
     fn challenge2(input: &[String]) {
         let before = Instant::now();
         let result = challenge8::challenge2(&input);
+
+        println!("8-2: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+}
+
+mod day9 {
+    use std::fs;
+    use aoc2021::{input, challenge9};
+    use std::time::Instant;
+
+    pub fn run() {
+        let input = input::read_lines("input/challenge9.txt").unwrap();
+
+        println!("Day 9:");
+        print!("\t");
+        challenge1(&input);
+        print!("\t");
+        challenge2(&input);
+    }
+
+    fn challenge1(input: &[String]) {
+        let before = Instant::now();
+        let result = challenge9::challenge1(&input);
+
+        println!("8-1: Result: {} (took {:.1?})", result, before.elapsed());
+    }
+
+    fn challenge2(input: &[String]) {
+        let before = Instant::now();
+        let result = challenge9::challenge2(&input);
 
         println!("8-2: Result: {} (took {:.1?})", result, before.elapsed());
     }
