@@ -7,6 +7,7 @@ pub mod challenge6;
 pub mod challenge7;
 pub mod challenge8;
 pub mod challenge9;
+pub mod challenge10;
 
 pub mod input {
     use std::error::Error;
