@@ -1,13 +1,4 @@
-use std::collections::{HashMap, HashSet};
-
-fn closers() -> HashMap<u8,u8>{
-    HashMap::from([
-        (b']', b'['),
-        (b')', b'('),
-        (b'>', b'<'),
-        (b'}', b'{'),
-    ])
-}
+use std::collections::HashMap;
 
 fn openers() -> HashMap<u8, u8> {
     HashMap::from([
@@ -29,7 +20,7 @@ pub fn challenge1(input: &[String]) -> u32 {
 
     let mut syntax_score = 0;
 
-    'line_loop: for (i, line) in input.iter().enumerate() {
+    'line_loop: for line in input {
         let mut stack = Vec::new();
 
         for c in line.as_bytes() {
@@ -72,7 +63,7 @@ pub fn challenge2(input: &[String]) -> u64 {
 
     let mut line_scores = Vec::new();
 
-    'line_loop: for (i, line) in input.iter().enumerate() {
+    'line_loop: for line in input {
         let mut stack = Vec::new();
 
         for c in line.as_bytes() {

@@ -199,7 +199,6 @@ mod day6 {
 }
 
 mod day7 {
-    use std::fs;
     use aoc2021::{input, challenge7};
     use std::time::Instant;
 
@@ -229,7 +228,6 @@ mod day7 {
 }
 
 mod day8 {
-    use std::fs;
     use aoc2021::{input, challenge8};
     use std::time::Instant;
 
@@ -259,7 +257,6 @@ mod day8 {
 }
 
 mod day9 {
-    use std::fs;
     use aoc2021::{input, challenge9};
     use std::time::Instant;
 
@@ -289,7 +286,6 @@ mod day9 {
 }
 
 mod day10 {
-    use std::fs;
     use aoc2021::{input, challenge10};
     use std::time::Instant;
 
